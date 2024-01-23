@@ -5,15 +5,21 @@ $( document ).ready
 		console.log( "ready!" );
 		
 		reloj();
+		setInterval( "reloj()", 1000 );
 	}
 );
 
 function reloj()
 {
 	let f = new Date();
-	let h = f.getHours();
-	let m = f.getMinutes();
-	let s = f.getSeconds();
+	let h = dosCifras( f.getHours() );
+	let m = dosCifras( f.getMinutes() );
+	let s = dosCifras( f.getSeconds() );
 	
 	$("#reloj").text( h + ":" + m + ":" + s );
+}
+
+function dosCifras(p)
+{
+	return p<10 ? "0"+p : p;
 }
